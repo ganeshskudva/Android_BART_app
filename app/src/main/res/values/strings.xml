@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">BART</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="from">Origin</string>
+    <string name="to">Destination</string>
+    <string name="schedule">SCHEDULE</string>
+    <string name="info">BART Info</string>
+    <string name="advisory">Advisory</string>
+    <string name="elevator">Elevator Status</string>
+    <string name="map">System Transit Map</string>
+
+    <color name="yellow">#f6fa50</color>
+
+        <string-array name="station">
+            <item>Anywhere</item>
+            <item>12th St. Oakland City Center</item>
+            <item>16th St. Mission (SF)</item>
+            <item>19th St. Oakland</item>
+            <item>24th St. Mission (SF)</item>
+            <item>Ashby (Berkeley)</item>
+            <item>Balboa Park (SF)</item>
+            <item>Bay Fair (San Leandro)</item>
+            <item>Castro Valley</item>
+            <item>Civic Center/UN Plaza (SF)</item>
+            <item>Coliseum</item>
+            <item>Colma</item>
+            <item>Concord</item>
+            <item>Daly City</item>
+            <item>Downtown Berkeley</item>
+            <item>Dublin/Pleasanton</item>
+            <item>El Cerrito del Norte</item>
+            <item>El Cerrito Plaza</item>
+            <item>Embarcadero (SF)</item>
+            <item>Fremont</item>
+            <item>Fruitvale (Oakland)</item>
+            <item>Glen Park (SF)</item>
+            <item>Hayward</item>
+            <item>Lafayette</item>
+            <item>Lake Merritt (Oakland)</item>
+            <item>MacArthur (Oakland)</item>
+            <item>Millbrae</item>
+            <item>Montgomery St. (SF)</item>
+            <item>North Berkeley</item>
+            <item>North Concord/Martinez</item>
+            <item>Oakland Int\'l Airport</item>
+            <item>Orinda</item>
+            <item>Pittsburg/Bay Point</item>
+            <item>Pleasant Hill/Contra Costa Center</item>
+            <item>Powell St. (SF)</item>
+            <item>Richmond</item>
+            <item>Rockridge</item>
+            <item>San Bruno</item>
+            <item>San Francisco Int\'l Airport</item>
+            <item>San Leandro</item>
+            <item>South Hayward</item>
+            <item>South San Francisco</item>
+            <item>Union City</item>
+            <item>Walnut Creek</item>
+            <item>West Dublin/Pleasanton</item>
+            <item>West Oakland</item>
+        </string-array>
+
+
+
+</resources>
