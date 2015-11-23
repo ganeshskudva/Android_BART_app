@@ -1,6 +1,7 @@
 # Android_BART_app
 ## Realtime BART Schedule app
-This app provides answer to the following "When is the next BART?" & "Will I miss my BART?" Displays information and live updates about BART transit system in the San Francisco Bay Area Bart Guide is a simple & easy to use app which provides Bart schedule's, which you can access anywhere, anytime.
+This app provides answer to the following "When is the next BART?" & "Will I miss my BART?" Displays information and live updates about BART transit system in the San Francisco Bay Area.
+Bart Guide is a simple & easy to use app which provides Bart schedule's, which you can access anywhere, anytime.
 
 ###Walkthrough
 ![BART Guide](BartGuide.gif)
