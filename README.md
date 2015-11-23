@@ -7,7 +7,7 @@ Bart Guide is a simple & easy to use app which provides Bart schedule's, which y
 ![BART Guide](BartGuide.gif)
 
 ###**Description:**
-The BART Guide provides real-time BART information. It enables you to retrieve real-time train information for any station, to plan your BART trips, and to get advisories, elevator, train count & holiday info for the system, and save favorite routes. It also includes a BART system map for reference. Super BART is a clean and simple BART and Caltrain schedule you can access anywhere, anytime. Just select when and where you want to go. Super BART features ✓ Clean and Modern design built from the ground up for today's Android phones. ✓ Combines BART and Caltrain schedules seamlessly ✓ Realtime departures from any BART station ✓ Offline Caltrain schedules ✓ Save your trips for easy access later ✓ Optional sticky notifications telling you when your train leaves ✓ Offline system maps for BART and Caltrain ✓ View fares for every trip ✓ Scroll through schedules for the day, why limit yourself to a time frame? ✓ Reverse origin and destination stations with one click when it's time to go home. ✓ Select your route using Google Maps ✓ Intelligent BART <> Caltrain transfer detection, tap Caltrain to get a schedule for just the right time If you live in, or are just visiting the San Francisco Bay Area, you need BART Guide right now.
+The BART Guide provides real-time BART information. It enables you to retrieve real-time train information for any station, to plan your BART trips, and to get advisories, elevator, train count & holiday info for the system, and save favorite routes. It also includes a BART system map for reference. 
 
 ###**Features:**
   1. Clean & simple design for today's android devices.
