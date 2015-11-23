@@ -15,7 +15,7 @@ public class BartHashMap {
         stationsMap = new HashMap<>();
         reverseStationsMap = new HashMap<>();
 
-        stationsMap.put("Anywhere", "Anywhere");
+        stationsMap.put("Select a Station", "Select a Station");
         stationsMap.put("12th St. Oakland City Center", "12TH");
         stationsMap.put("16th St. Mission (SF)", "16TH");
         stationsMap.put("19th St. Oakland", "19TH");
@@ -59,7 +59,7 @@ public class BartHashMap {
         stationsMap.put("South San Francisco", "SSAN");
         stationsMap.put("Union City", "UCTY");
         stationsMap.put("Walnut Creek", "WCRK");
-        stationsMap.put("West Dublin", "WDUB");
+        stationsMap.put("West Dublin/Pleasanton", "WDUB");
         stationsMap.put("West Oakland", "WOAK");
 
         for (Map.Entry<String,String> entry: stationsMap.entrySet()) {

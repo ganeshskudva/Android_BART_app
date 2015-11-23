@@ -1,6 +1,7 @@
 package com.gkudva.bart.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,20 +38,30 @@ public class BartAdapter extends ArrayAdapter {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.schedule_list_item, parent, false);
         }
 
-
+        convertView.setTag(position);
         TextView SrcStation = (TextView) convertView.findViewById(R.id.tvSrc);
         TextView SrcTime = (TextView) convertView.findViewById(R.id.tvSrcTime);
         TextView DestStation = (TextView) convertView.findViewById(R.id.tvDest);
         TextView DestTime = (TextView) convertView.findViewById(R.id.tvDestTime);
-        TextView Fare = (TextView) convertView.findViewById(R.id.tvFare);
-        TextView TravelDuration = (TextView) convertView.findViewById(R.id.tvTravelDuration);
+        TextView ArrivalTime = (TextView) convertView.findViewById(R.id.tvArrival);
+        TextView TransferInfo = (TextView) convertView.findViewById(R.id.tvTransfer);
+
 
         SrcStation.setText(BartHashMap.getStationNameFromStationCode(model.getOrigin()));
         DestStation.setText(BartHashMap.getStationNameFromStationCode(model.getDestination()));
         SrcTime.setText(model.getOriginTime());
         DestTime.setText(model.getDestTime());
-        Fare.setText("$"+model.getFare()+"/$"+Float.parseFloat(model.getFare())*2);
-        TravelDuration.setText(model.getTravelDuration());
+        ArrivalTime.setText(model.getArriveTime());
+
+
+
+        if (model.isTransferInvolved())
+        {
+            TransferInfo.setText("Transfer");
+            TransferInfo.setTextColor(Color.parseColor("#E34444"));
+
+        }
+
 
         return convertView;
     }

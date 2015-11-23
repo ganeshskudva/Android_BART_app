@@ -18,13 +18,13 @@
         android:layout_alignParentLeft="true"
         android:paddingLeft="10dp"
 
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_alignParentTop="true" />
 
     <Spinner
         android:id="@+id/spFrom"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -35,21 +35,23 @@
         android:layout_height="wrap_content"
         android:text="@string/to"
         android:id="@+id/tvTo"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/tvFrom"
+        android:layout_alignStart="@+id/tvFrom"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:layout_below="@+id/tvFrom"
-        android:textSize="20dp"/>
+        android:textSize="15dp"/>
 
     <Spinner
         android:id="@+id/spTo"
         android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spFrom"
+        android:layout_alignStart="@+id/spFrom"
         android:entries="@array/station"
         android:layout_below="@+id/spFrom"
         android:paddingTop="10dp"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,8 +63,9 @@
         android:paddingTop="10dp"
         android:layout_below="@+id/tvTo"
         android:textSize="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:textStyle="bold" />
+
 
     <View
         android:layout_width="fill_parent"
@@ -80,5 +83,8 @@
         android:layout_marginTop="20dp"
         android:layout_alignRight="@+id/spTo"
         android:layout_alignEnd="@+id/spTo" />
+
+
+
 
 </RelativeLayout>

@@ -4,21 +4,19 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_advisory" android:icon="@mipmap/ic_action_report_problem"
             android:title="@string/advisory" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
+        <item android:id="@+id/nav_elevator" android:icon="@mipmap/ic_communication_import_export"
             android:title="@string/elevator" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_saved_trip" android:icon="@mipmap/ic_action_assignment"
+            android:title="@string/saved_trip" />
+        <item android:id="@+id/nav_map" android:icon="@mipmap/ic_maps_place"
+            android:title="@string/map" />
+        <item android:id="@+id/nav_count" android:icon="@mipmap/ic_maps_directions_subway"
+            android:title="@string/count" />
+        <item android:id="@+id/nav_holiday" android:icon="@mipmap/ic_image_nature_people"
+            android:title="@string/holiday" />
+
+
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

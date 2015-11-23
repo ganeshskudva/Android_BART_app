@@ -6,6 +6,20 @@
         android:id="@+id/action_refresh"
         android:icon="@mipmap/ic_action_notification_sync"
         android:title="@string/action_refresh"
+        android:orderInCategory="300"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_datetime"
+        android:icon="@mipmap/ic_action_today"
+        android:title="@string/action_datetime"
         android:orderInCategory="100"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_shuffle"
+        android:icon="@mipmap/ic_av_shuffle"
+        android:title="@string/action_shuffle"
+        android:orderInCategory="200"
         app:showAsAction="always" />
 </menu>

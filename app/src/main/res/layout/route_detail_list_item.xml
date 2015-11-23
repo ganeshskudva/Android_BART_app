@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/tvTrainDetail"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="New Text"
+        android:id="@+id/tvOriginDetail"
+        android:layout_below="@+id/tvTrainDetail"
+        android:layout_alignLeft="@+id/tvFareDetailHeader"
+        android:layout_alignStart="@+id/tvFareDetailHeader"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="New Text"
+        android:id="@+id/tvOriginTimeDetail"
+        android:layout_alignTop="@+id/tvOriginDetail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="New Text"
+        android:id="@+id/tvDestinationDetail"
+        android:layout_below="@+id/tvOriginDetail"
+        android:layout_alignLeft="@+id/tvFareDetailHeader"
+        android:layout_alignStart="@+id/tvFareDetailHeader"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="New Text"
+        android:id="@+id/tvDestinationTimeDetail"
+        android:layout_alignLeft="@+id/tvOriginTimeDetail"
+        android:layout_below="@+id/tvOriginTimeDetail"
+        android:layout_alignStart="@+id/tvOriginTimeDetail"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

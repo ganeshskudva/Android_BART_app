@@ -5,6 +5,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import java.io.Serializable;
 import java.io.StringReader;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +20,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 /**
  * Created by gkudva on 10/24/15.
  */
-public class BartTripModel {
+public class BartTripModel implements Serializable{
     private String origin;
     private String destination;
     private String fare;
@@ -28,6 +29,11 @@ public class BartTripModel {
     private String travelDuration;
     private String originTimeDate;
     private String destTimeDate;
+    private static String scheduleRequestedTime;
+    private static String scheduleRequestedDate;
+    private String arriveTime;
+    private boolean transferInvolved;
+    private List<BartTripModel> transferStationList;
 
     private final static String KEY_REQUEST = "request";
     private final static String KEY_ORIGIN = "origin";
@@ -37,6 +43,25 @@ public class BartTripModel {
     private final static String KEY_DESTTIME = "destTimeMin";
     private final static String KEY_TRIP = "trip";
     private final static String KEY_ORGDATE = "origTimeDate";
+    private final static String KEY_EMISSIONS = "co2_emissions";
+    private final static String KEY_TIME = "time";
+    private final static String KEY_DATE = "date";
+
+    public List<BartTripModel> getTransferStationList() {
+        return transferStationList;
+    }
+
+    public void setTransferStationList(List<BartTripModel> transferStationList) {
+        this.transferStationList = transferStationList;
+    }
+
+    public boolean isTransferInvolved() {
+        return transferInvolved;
+    }
+
+    public void setTransferInvolved(boolean transferInvolved) {
+        this.transferInvolved = transferInvolved;
+    }
 
     public String getOriginTimeDate() {
         return originTimeDate;
@@ -115,9 +140,26 @@ public class BartTripModel {
     }
 
 
+    public String getArriveTime() {
+        return arriveTime;
+    }
+
+    public void setArriveTime(String arriveTime) {
+        this.arriveTime = arriveTime;
+    }
+
+    public static String getScheduleRequestedTime() {
+        return scheduleRequestedTime;
+    }
+
+    public void setScheduleRequestedTime(String scheduleRequestedTime) {
+        this.scheduleRequestedTime = scheduleRequestedTime;
+    }
+
     public static BartTripModel ModelfromXML(Node node)
     {
         BartTripModel model = new BartTripModel();
+        ArrayList<BartTransferModel> stationList = new ArrayList<>();
         try {
 
             model.setOrigin(getValuefromElement(node, KEY_ORIGIN));
@@ -128,9 +170,32 @@ public class BartTripModel {
             model.setOriginTimeDate(getValuefromElement(node, KEY_ORGDATE));
             model.setDestTimeDate(getValuefromElement(node, KEY_DESTDATE));
             model.setTravelDuration(timeDiff(model.getOriginTimeDate(),
-                                             model.getOriginTime(),
-                                             model.getDestTimeDate(),
-                                             model.getDestTime()));
+                    model.getOriginTime(),
+                    model.getDestTimeDate(),
+                    model.getDestTime(),
+                    false));
+            model.setArriveTime(timeDiff(scheduleRequestedDate,
+                                         scheduleRequestedTime,
+                                         model.getOriginTimeDate(),
+                                         model.getOriginTime(),
+                                         true));
+
+            NodeList childNodeList = node.getChildNodes();
+            for (int i = 0; i < childNodeList.getLength(); i++)
+            {
+                BartTransferModel modelTrnsfs = BartTransferModel.ModelfromXML(childNodeList.item(i));
+                stationList.add(modelTrnsfs);
+            }
+            model.setTransferStationList((List)stationList);
+            if (stationList.size() > 1)
+            {
+                model.setTransferInvolved(true);
+            }
+            else
+            {
+                model.setTransferInvolved(false);
+            }
+
         }
         catch (Exception e)
         {
@@ -145,21 +210,22 @@ public class BartTripModel {
 
         ArrayList<BartTripModel> bartTripModelList = new ArrayList<>();
         try {
-            DocumentBuilderFactory dbf =
-                    DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            InputSource is = new InputSource();
-            is.setCharacterStream(new StringReader(xmlResponse));
 
-            Document doc = db.parse(is);
+            Document doc = setupDOMParser(xmlResponse);
+            NodeList timeNode = doc.getElementsByTagName(KEY_TIME);
+            scheduleRequestedTime = getElementValue(timeNode.item(0));
+            NodeList dateNode = doc.getElementsByTagName(KEY_DATE);
+            scheduleRequestedDate = convertDate(getElementValue(dateNode.item(0)));
             NodeList nodes = doc.getElementsByTagName(KEY_REQUEST);
             NodeList childNodeList = nodes.item(0).getChildNodes();
 
             for (int i = 0; i < childNodeList.getLength(); i++) {
-                    BartTripModel model = ModelfromXML(childNodeList.item(i));
-                    bartTripModelList.add(model);
-
+                 BartTripModel model = ModelfromXML(childNodeList.item(i));
+                 bartTripModelList.add(model);
             }
+
+
+
 
         }
         catch (Exception e)
@@ -178,10 +244,12 @@ public class BartTripModel {
     private static String timeDiff(String orgDate,
                                    String orgTime,
                                    String destDate,
-                                   String destTime)
+                                   String destTime,
+                                   Boolean arrivalTime)
     {
         long diff;
         double diffInHours = 0l;
+        double diffInMin = 0l;
         String timeDiffStr = "";
         try
         {
@@ -194,16 +262,37 @@ public class BartTripModel {
             Date dateObj2 = sdf.parse(destDate + " " + destTime);
 
             diff = dateObj2.getTime() - dateObj1.getTime();
-            diffInHours = diff / ((double) 1000 * 60 * 60);
+            if ((diff < 0) && arrivalTime)
+            {
+                /*This happens around midnight. If user wants schedule at around 11:58PM, Bart api returns schedule prior to 11;58Pm instead of next day's (AM) schedule's*/
+                if (!isDateAfter(orgDate, destDate)) {
+                    timeDiffStr = "Departed";
+                    return timeDiffStr;
+                }
+            }
+            if (diff < 0)
+            {
+                /*Train reaches destination the next day*/
+                diff = dateObj1.getTime() - dateObj2.getTime();
+            }
+            diffInHours = diff / (double)((1000 * 60 * 60));
             if (diffInHours < 1)
             {
                 /*Difference in time is less than an hour*/
                 diffInHours = diff / ((double) 1000 * 60);
-                timeDiffStr = decimalFormat.format(diffInHours) + " min";
+                if (diffInHours == 0 )
+                {
+                    timeDiffStr = "Now";
+                }
+                else {
+                    /*Add 1 min to Arrival & Travel Duration times as a buffer*/
+                    timeDiffStr = decimalFormat.format(diffInHours + 1.0) + " min";
+                }
             }
             else
             {
-                timeDiffStr = "1 hr "+decimalFormat.format((diffInHours - 1) * 100) + " min";
+                /*Add 1 min to Arrival & Travel Duration times as a buffer*/
+                timeDiffStr = "1 hr "+decimalFormat.format(((diffInHours - 1) * 60) + 1.0) + " min";
             }
 
 
@@ -214,5 +303,106 @@ public class BartTripModel {
         }
 
         return timeDiffStr;
+    }
+
+    private static Boolean isDateAfter(String scheduleRequestedDate,
+                                               String trainArrivalDate)
+    {
+        Boolean isAfter = false;
+        try
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            Date schdReqDate = sdf.parse(scheduleRequestedDate);
+            Date trnArrDate = sdf.parse(trainArrivalDate);
+
+            if (trnArrDate.after(schdReqDate))
+            {
+                isAfter = true;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return isAfter;
+
+    }
+
+    public static final String getElementValue( Node elem) {
+        Node child;
+
+        if( elem != null){
+            if (elem.hasChildNodes()){
+                for( child = elem.getFirstChild(); child != null; child = child.getNextSibling() ){
+                    if (child.getNodeType() == Node.TEXT_NODE) {
+                        return child.getNodeValue();
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    public static Document setupDOMParser(String xmlResponse)
+    {
+        Document doc = null;
+        try {
+            DocumentBuilderFactory dbf =
+                    DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            InputSource is = new InputSource();
+            is.setCharacterStream(new StringReader(xmlResponse));
+
+            doc = db.parse(is);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return doc;
+    }
+
+    public static String getEmissions(String xmlResponse)
+    {
+        String emissions = "";
+        try
+        {
+            Document doc = setupDOMParser(xmlResponse);
+            NodeList nodes = doc.getElementsByTagName(KEY_EMISSIONS);
+
+            emissions = getElementValue(nodes.item(0));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return emissions;
+    }
+
+    /*
+    * Convert date from Nov 22, 2015 to 11/22/2015 format
+    */
+    public static String convertDate(String date)
+    {
+        String convertedDate = "";
+
+        try
+        {
+            String OLD_FORMAT = "MMM dd, yyyy";
+            String NEW_FORMAT = "MM/dd/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+            Date oldDate = sdf.parse(date);
+            sdf.applyPattern(NEW_FORMAT);
+            convertedDate = sdf.format(oldDate);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return convertedDate;
     }
 }
