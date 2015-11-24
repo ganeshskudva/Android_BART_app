@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class BartRouteDetailAdapter extends ArrayAdapter {
     private ArrayList<BartTransferModel> list;
-    private final String DEBUG_TAG = "Ganesh";
 
     public BartRouteDetailAdapter(Context context,  List<BartTransferModel> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);

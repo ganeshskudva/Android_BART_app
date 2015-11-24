@@ -80,7 +80,6 @@ public class BartTripModel implements Serializable{
     }
 
     private final static String KEY_DESTDATE = "destTimeDate";
-    private final static String DEBUG_KEY = "Ganesh";
 
     public BartTripModel() {
         this.origin = null;

@@ -23,7 +23,6 @@ public class SavedTripActivity extends AppCompatActivity {
     private ListView lvSavedTrip;
     private BartSavedTripAdapter adapter;
     private ArrayList<BartSugarCRMModel> bartSugarCRMModellist;
-    private static final String DEBUG_TAG = "Ganesh";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

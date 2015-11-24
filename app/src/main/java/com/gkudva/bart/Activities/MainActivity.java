@@ -22,7 +22,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,7 +71,6 @@ public class MainActivity extends AppCompatActivity
     private ProgressDialog progressDialog;
     private Context context;
     private final String BART_KEY = "MW9S-E7SL-26DU-VV8V";
-    private final String DEBUG_TAG = "Ganesh";
     final String INTENT_ACTION = "content";
     private final int TASK_SCHEDULE = 1;
     private final int TASK_ADVISORY = 2;
@@ -218,7 +216,6 @@ public class MainActivity extends AppCompatActivity
 
     public void getData() {
         if (SrcStation == null || DestStation == null) {
-            Log.d(DEBUG_TAG, " getData() Src: " + SrcStation + "Dest. " + DestStation);
             return;
         }
 
@@ -242,7 +239,6 @@ public class MainActivity extends AppCompatActivity
         String url = "http://api.bart.gov/api/sched.aspx?cmd=depart&orig=" + SrcStation + "&dest=" + DestStation + "&date="+date+"&time="+time+"&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=0";
         date = KEY_TODAY;
         time = KEY_NOW;
-        Log.d(DEBUG_TAG, "URL: " + url);
         currentTask = TASK_SCHEDULE;
         bartAdapter.clear();
         task = new DownloadTask(this, MAIN_ACTIVITY);
@@ -255,7 +251,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SrcStation = BartHashMap.getStationCodeFromStationName(parent.getItemAtPosition(position).toString());
-                Log.d(DEBUG_TAG, "Src St. " + SrcStation);
                 getData();
             }
 
@@ -269,7 +264,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 DestStation = BartHashMap.getStationCodeFromStationName(parent.getItemAtPosition(position).toString());
-                Log.d(DEBUG_TAG, "Dest St. " + DestStation);
                 getData();
             }
 

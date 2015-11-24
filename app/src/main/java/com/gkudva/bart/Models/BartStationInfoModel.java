@@ -1,7 +1,5 @@
 package com.gkudva.bart.Models;
 
-import android.util.Log;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -42,7 +40,6 @@ public class BartStationInfoModel implements Serializable{
     private static String KEY_PARKING_FILL_TIME = "fill_time";
     private static String KEY_TRANSIT_INFO = "transit_info";
     private static String KEY_PARKING = "parking";
-    private static String DEBUG_TAG = "Ganesh";
 
     public BartStationInfoModel() {
         this.parking = null;
@@ -165,7 +162,7 @@ public class BartStationInfoModel implements Serializable{
 
     public static final String getElementValue( Node elem) {
         Node child;
-        Log.d(DEBUG_TAG, "getElementValue");
+
         if( elem != null){
             if (elem.hasChildNodes()){
                 for( child = elem.getFirstChild(); child != null; child = child.getNextSibling() ){

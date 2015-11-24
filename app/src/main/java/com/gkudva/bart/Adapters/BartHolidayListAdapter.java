@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class BartHolidayListAdapter extends ArrayAdapter {
     private ArrayList<BartHolidayModel> list;
-    private final String DEBUG_TAG = "Ganesh";
 
     public BartHolidayListAdapter(Context context,  List<BartHolidayModel> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);

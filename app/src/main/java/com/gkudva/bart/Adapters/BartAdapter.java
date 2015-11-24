@@ -20,7 +20,6 @@ import java.util.List;
 public class BartAdapter extends ArrayAdapter {
     private String destination;
     private List<BartTripModel> list;
-    private final String DEBUG_TAG = "Ganesh";
 
     public BartAdapter(Context context, List<BartTripModel> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);
@@ -45,6 +44,7 @@ public class BartAdapter extends ArrayAdapter {
         TextView DestTime = (TextView) convertView.findViewById(R.id.tvDestTime);
         TextView ArrivalTime = (TextView) convertView.findViewById(R.id.tvArrival);
         TextView TransferInfo = (TextView) convertView.findViewById(R.id.tvTransfer);
+        TransferInfo.setText("");
 
 
         SrcStation.setText(BartHashMap.getStationNameFromStationCode(model.getOrigin()));

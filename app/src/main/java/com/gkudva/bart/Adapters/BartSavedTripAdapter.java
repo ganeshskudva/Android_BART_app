@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class BartSavedTripAdapter extends ArrayAdapter {
     private ArrayList<BartSugarCRMModel> list;
-    private final String DEBUG_TAG = "Ganesh";
 
     public BartSavedTripAdapter(Context context,  List<BartSugarCRMModel> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);

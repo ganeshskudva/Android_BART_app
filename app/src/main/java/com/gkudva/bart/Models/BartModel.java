@@ -26,8 +26,6 @@ public class BartModel {
     private List<BartDestModel> DestList;
     private static final String KEY_ETD = "etd";
 
-    private static final String DEBUG_TAG = "Ganesh";
-
     public BartModel() {
         this.Src = null;
         this.SrcTime = null;
