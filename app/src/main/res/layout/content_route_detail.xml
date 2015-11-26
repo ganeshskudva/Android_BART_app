@@ -29,7 +29,9 @@
         android:layout_marginTop="5dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/colorGreen"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +54,9 @@
         android:layout_alignLeft="@+id/tvFareDetail"
         android:layout_alignStart="@+id/tvFareDetail"
         android:layout_alignTop="@+id/tvTravelDurationDetailHeader"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/colorBrown"
+        android:textStyle="bold"/>
 
     <ListView
         android:layout_width="wrap_content"

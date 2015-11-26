@@ -360,7 +360,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case TASK_TRAIN_COUNT:
                 BartAdvisoryModel trainCount = new BartAdvisoryModel();
-                Snackbar.make(coordinatorLayout, "There are curently " + trainCount.trainCountFromResponse(response) + " trains active in the BART system", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(coordinatorLayout, "There are curently " + trainCount.trainCountFromResponse(response) + " trains active in the system", Snackbar.LENGTH_LONG).show();
                 break;
             case TASK_HOLIDAY:
                 ArrayList<BartHolidayModel> holidayList = new ArrayList<>();
@@ -481,7 +481,7 @@ public class MainActivity extends AppCompatActivity
     public void onDateSet(DatePicker view, int year, int month, int day) {
         //do some stuff for example write on log and update TextField on activity
 
-        date = Integer.toString(month)+"/"+Integer.toString(day)+"/"+Integer.toString(year);
+        date = Integer.toString(month + 1)+"/"+Integer.toString(day)+"/"+Integer.toString(year);
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
     }

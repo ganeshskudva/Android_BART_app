@@ -7,8 +7,10 @@ import android.os.AsyncTask;
 import com.gkudva.bart.Activities.MainActivity;
 import com.gkudva.bart.Activities.MapsActivity;
 
-import org.apache.commons.io.IOUtils;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -48,7 +50,8 @@ public class DownloadTask extends AsyncTask<String, Void, String>  {
                 httpConn.connect();
 
                 if (httpConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    response = IOUtils.toString(httpConn.getInputStream(), "UTF-8");
+                    //response = IOUtils.toString(httpConn.getInputStream(), "UTF-8");
+                    response = convertStreamToString(httpConn.getInputStream());
                 }
             }
 
@@ -57,6 +60,27 @@ public class DownloadTask extends AsyncTask<String, Void, String>  {
         }
 
         return response;
+    }
+
+    private String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
     }
 
     @Override

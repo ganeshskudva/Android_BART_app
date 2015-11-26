@@ -1,6 +1,7 @@
 package com.gkudva.bart.Adapters;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import java.util.List;
 public class BartSavedTripAdapter extends ArrayAdapter {
     private ArrayList<BartSugarCRMModel> list;
 
+
     public BartSavedTripAdapter(Context context,  List<BartSugarCRMModel> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);
         this.list = (ArrayList)objects;
@@ -36,7 +38,8 @@ public class BartSavedTripAdapter extends ArrayAdapter {
 
         TextView tvTripDetails = (TextView) convertView.findViewById(R.id.tvTripDetails);
 
-        tvTripDetails.setText("Origin: "+model.getOrigin()+"\n"+"Destination: "+model.getDestination());
+
+        tvTripDetails.setText(Html.fromHtml("<b>" + "Origin:" + "</b> "+model.getOrigin()+"<br/>"+"<b> Destination: </b>" + model.getDestination()));
 
 
         return convertView;

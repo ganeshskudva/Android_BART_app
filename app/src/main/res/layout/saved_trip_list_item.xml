@@ -14,7 +14,7 @@
         android:paddingLeft="@dimen/list_item_padding_sides"
         android:paddingRight="@dimen/list_item_padding_sides"
         android:id="@+id/tvTripDetails"
-        android:background="@android:color/white"/>
+        android:background="@android:color/background_light"/>
 
 
 

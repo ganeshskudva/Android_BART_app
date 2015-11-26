@@ -9,4 +9,5 @@
     <color name="black_overlay">#66000000</color>
     <color name="gray_background">#757575</color>
     <color name="colorRed">#E34444</color>
+    <color name="colorBrown">#7a262f</color>
 </resources>

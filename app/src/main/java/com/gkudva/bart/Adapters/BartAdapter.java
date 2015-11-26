@@ -53,6 +53,10 @@ public class BartAdapter extends ArrayAdapter {
         DestTime.setText(model.getDestTime());
         ArrivalTime.setText(model.getArriveTime());
 
+        if (model.getArriveTime().equals("Arriving")) {
+            ArrivalTime.setTextColor(Color.parseColor("#04bd53"));
+        }
+
 
 
         if (model.isTransferInvolved())

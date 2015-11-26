@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BART Guide</string>
+    <string name="app_name">Ride Bart</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,12 +11,12 @@
     <string name="from">Origin</string>
     <string name="to">Destination</string>
     <string name="schedule">ITINERARY</string>
-    <string name="info">BART Guide</string>
+    <string name="info">GUIDE</string>
     <string name="advisory">Advisory</string>
     <string name="elevator">Elevator Status</string>
     <string name="count">Train Count</string>
-    <string name="holiday">Holiday List</string>
-    <string name="map">System Transit Map</string>
+    <string name="holiday">Holidays</string>
+    <string name="map">Transit Map</string>
 
     <color name="yellow">#f6fa50</color>
 
@@ -68,7 +68,7 @@
             <item>West Dublin/Pleasanton</item>
             <item>West Oakland</item>
         </string-array>
-    <string name="title_activity_holiday_list">BART Holiday List</string>
+    <string name="title_activity_holiday_list">Holiday List</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -159,9 +159,9 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
 
-    <string name="title_activity_map">BART Transit Map</string>
+    <string name="title_activity_map">Transit Map</string>
     <string name="station">Select Station</string>
-    <string name="title_activity_station_info">BART Station Info</string>
+    <string name="title_activity_station_info">Station Info</string>
     <string name="parking_fill_info">Estimated Parking Fill Time</string>
     <string name="parking">Parking</string>
     <string name="bike">Bikes</string>

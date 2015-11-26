@@ -281,7 +281,7 @@ public class BartTripModel implements Serializable{
                 diffInHours = diff / ((double) 1000 * 60);
                 if (diffInHours == 0 )
                 {
-                    timeDiffStr = "Now";
+                    timeDiffStr = "Arriving";
                 }
                 else {
                     /*Add 1 min to Arrival & Travel Duration times as a buffer*/

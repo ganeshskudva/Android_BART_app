@@ -43,7 +43,7 @@ public class MapsActivity extends AppCompatActivity implements OnTaskCompletion{
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("BART Transit Map");
+        getSupportActionBar().setTitle("Transit Map");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         onTaskCompletion = this;
         //ivMap = (TouchImageView) findViewById(R.id.ivMap);
