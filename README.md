@@ -20,3 +20,6 @@ The BART Guide provides real-time BART information. It enables you to retrieve r
   8. Get detailed station info which includes, estimated Parking Fill Time & Parking rates
   9. Get direction's to each station in the system
   10. Zoomable Bart system map
+
+###**Google Play:**
+App is available on Google Play at this link: https://play.google.com/store/apps/details?id=com.gkudva.bart
