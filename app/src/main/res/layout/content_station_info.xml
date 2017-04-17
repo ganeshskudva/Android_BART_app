@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
+        android:text="@string/NA"
         android:id="@+id/tvStationName"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -27,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvStationAddress"
         android:layout_below="@+id/tvStationName"
         android:layout_alignParentLeft="true"
@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvParkingInfo"
         android:layout_below="@+id/tvParkingInfoHeader"
         android:layout_alignStart="@+id/tvParkingInfoHeader"
@@ -72,7 +72,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvParkingFillTime"
         android:layout_below="@+id/tvParkingInfo"
         android:layout_alignParentRight="true"
@@ -105,7 +105,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvBikeRacks"
         android:layout_below="@+id/tvBikesHeader"
         android:layout_alignParentRight="true"
@@ -126,7 +126,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvBikeStation"
         android:layout_below="@+id/tvBikeRacks"
         android:layout_alignParentRight="true"
@@ -147,7 +147,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvBikeLocker"
         android:layout_below="@+id/tvBikeStation"
         android:layout_alignParentRight="true"
@@ -169,7 +169,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/NA"
         android:id="@+id/tvTransitInfo"
         android:layout_below="@+id/tvTransitInfoHeader"
         android:layout_alignStart="@+id/tvTransitInfoHeader"

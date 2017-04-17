@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BART.iml" filepath="$PROJECT_DIR$/BART.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android_BART_app.iml" filepath="$PROJECT_DIR$/Android_BART_app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

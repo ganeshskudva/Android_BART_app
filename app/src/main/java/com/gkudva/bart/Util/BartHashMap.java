@@ -59,6 +59,7 @@ public class BartHashMap {
         stationsMap.put("South San Francisco", "SSAN");
         stationsMap.put("Union City", "UCTY");
         stationsMap.put("Walnut Creek", "WCRK");
+        stationsMap.put("Warm Springs / South Fremont", "WARM");
         stationsMap.put("West Dublin/Pleasanton", "WDUB");
         stationsMap.put("West Oakland", "WOAK");
 

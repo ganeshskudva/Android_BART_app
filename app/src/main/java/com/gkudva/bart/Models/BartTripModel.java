@@ -180,7 +180,8 @@ public class BartTripModel implements Serializable{
                                          true));
 
             NodeList childNodeList = node.getChildNodes();
-            for (int i = 0; i < childNodeList.getLength(); i++)
+            /*First node only contains fare details. Start iterating from second node*/
+            for (int i = 1; i < childNodeList.getLength(); i++)
             {
                 BartTransferModel modelTrnsfs = BartTransferModel.ModelfromXML(childNodeList.item(i));
                 stationList.add(modelTrnsfs);

@@ -68,44 +68,39 @@ public class StationInfoActivity extends AppCompatActivity {
     {
         tvStationName.setText(BartHashMap.getStationNameFromStationCode(stationAddress.getAbbreviation()));
         tvStationAddress.setText(stationAddress.getAddress() + "\n" + stationAddress.getCity() +", CA-" +stationAddress.getZip());
-        tvParkingInfo.setText(Html.fromHtml(stationInfo.getParkingInfo()));
 
-        if (stationInfo.getParkingFillTime().isEmpty())
-        {
-            tvParkingFillTime.setText("Not Available");
-        }
-        else
-        {
-            tvParkingFillTime.setText(stationInfo.getParkingFillTime());
-        }
-        if (stationInfo.getBikeParking().equals(AVAILABLE))
-        {
-            tvBikeRacks.setText("Bike Racks available");
-        }
-        else
-        {
-            tvBikeRacks.setText("Bike Racks not available");
-        }
+        try {
+            tvParkingInfo.setText(Html.fromHtml(stationInfo.getParkingInfo()));
 
-        if (stationInfo.getBikeStation().equals(AVAILABLE))
-        {
-            tvBikeStation.setText("Yes, station is a bike station");
-        }
-        else
-        {
-            tvBikeStation.setText("Not a bike station");
-        }
+            if (stationInfo.getParkingFillTime().isEmpty()) {
+                tvParkingFillTime.setText("Not Available");
+            } else {
+                tvParkingFillTime.setText(stationInfo.getParkingFillTime());
+            }
+            if (stationInfo.getBikeParking().equals(AVAILABLE)) {
+                tvBikeRacks.setText("Bike Racks available");
+            } else {
+                tvBikeRacks.setText("Bike Racks not available");
+            }
 
-        if (stationInfo.getLocker().equals(AVAILABLE))
-        {
-            tvBikeLocker.setText("Yes, station has lockers");
-        }
-        else
-        {
-            tvBikeLocker.setText("No lockers at this station");
-        }
+            if (stationInfo.getBikeStation().equals(AVAILABLE)) {
+                tvBikeStation.setText("Yes, station is a bike station");
+            } else {
+                tvBikeStation.setText("Not a bike station");
+            }
 
-        tvTransitInfo.setText(Html.fromHtml(stationInfo.getTransitInfo()));
+            if (stationInfo.getLocker().equals(AVAILABLE)) {
+                tvBikeLocker.setText("Yes, station has lockers");
+            } else {
+                tvBikeLocker.setText("No lockers at this station");
+            }
+
+            tvTransitInfo.setText(Html.fromHtml(stationInfo.getTransitInfo()));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 
     @Override

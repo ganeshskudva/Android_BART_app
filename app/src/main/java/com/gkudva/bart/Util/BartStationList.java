@@ -48,6 +48,7 @@ public class BartStationList {
                                             "South San Francisco",
                                             "Union City",
                                             "Walnut Creek",
+                                            "Warm Springs / South Fremont",
                                             "West Dublin/Pleasanton",
                                             "West Oakland"};
 }
