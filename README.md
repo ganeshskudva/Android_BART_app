@@ -25,5 +25,4 @@ The BART Guide provides real-time BART information. It enables you to retrieve r
 App is available on Google Play at this link: https://play.google.com/store/apps/details?id=com.gkudva.bart
 
 ###Libraries Used
-
 Sugar ORM
